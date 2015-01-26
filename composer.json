@@ -1,0 +1,18 @@
+{
+    "name": "erusev/base",
+    "description": "Minimalistic ORM.",
+    "keywords": ["orm", "database", "pdo"],
+    "homepage": "https://github.com/erusev/base",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Emanuil Rusev",
+            "email": "hello@erusev.com",
+            "homepage": "http://erusev.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": { "Base\\": "src" }
+    }
+}
