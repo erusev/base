@@ -1,6 +1,6 @@
 {
     "name": "erusev/base",
-    "description": "Minimalistic ORM.",
+    "description": "Simple ORM.",
     "keywords": ["orm", "database", "pdo"],
     "homepage": "https://github.com/erusev/base",
     "type": "library",
