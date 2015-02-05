@@ -2,20 +2,11 @@
 
 Simple ORM in PHP
 
+#### Interface
+
 ```php
 # create a database connection
 $Base = new \Base\Base('mysql:host=localhost;dbname=example', 'username', 'password');
-
-# read all users
-$Base->read('SELECT * FROM user');
-# read user #123
-$Base->readRecord('SELECT * FROM user WHERE id = ?', [123]);
-# read the username of user #123
-$Base->readField('SELECT username FROM user WHERE id = ?', [123]);
-# read all usernames
-$Base->readFields('SELECT username FROM user');
-# update all users
-$Base->update('UPDATE INTO user SET updated = ?', [1]);
 
 # read user #123
 $Base->readItem('user', 123);
@@ -76,4 +67,15 @@ $Base->find('user')->has('post')->whereEqual('post.isFeatured', 1)->read();
 $Base->find('post')->belongsTo('user')->whereEqual('user.username', 'john.doe')->read();
 # read all posts that are tagged with "php"
 $Base->find('post')->hasAndBelongsTo('tag')->whereEqual('tag.name', 'php')->read();
+
+# read all users
+$Base->read('SELECT * FROM user');
+# read user #123
+$Base->readRecord('SELECT * FROM user WHERE id = ?', [123]);
+# read the username of user #123
+$Base->readField('SELECT username FROM user WHERE id = ?', [123]);
+# read all usernames
+$Base->readFields('SELECT username FROM user');
+# update all users
+$Base->update('UPDATE INTO user SET updated = ?', [1]);
 ```
