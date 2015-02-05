@@ -92,7 +92,7 @@ class Base
     /**
      * @param string $table
      * @param array $Data
-     * @return string
+     * @return int
      */
     function createItem($table, array $Data)
     {
@@ -140,11 +140,11 @@ class Base
     }
 
     /**
-     * @return string
+     * @return int
      */
     function lastId()
     {
-        $lastInsertId = $this->PDO->lastInsertId();
+        $lastInsertId = (int) $this->PDO->lastInsertId();
 
         return $lastInsertId;
     }

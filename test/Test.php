@@ -281,12 +281,14 @@ class Test extends PHPUnit_Framework_TestCase
 
         $this->assertEquals($ExpectedRecord, $Item);
 
-        $this->Base->createItem('user', [
+        $result = $this->Base->createItem('user', [
             'id' => '3',
             'username' => 'james.smith',
             'firstName' => 'James',
             'lastName' => 'Smith',
         ]);
+
+        $this->assertEquals(3, $result);
 
         $Item = $this->Base->readItem('user', 3);
 
