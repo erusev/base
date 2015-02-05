@@ -2,7 +2,11 @@
 
 Simple ORM in PHP
 
-#### Interface
+#### Install
+
+Include both `Base.php` and `Collection.php` or install [the composer package](https://packagist.org/packages/erusev/base)
+
+#### Use
 
 ```php
 # create a database connection
