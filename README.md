@@ -47,7 +47,7 @@ $Base->find('user')->update(['isDeleted' => 1]);
 $Base->find('user')->count();
 ```
 
-Filter collections:
+Handle collections:
 ```php
 # read all users with a lastName of "Doe"
 $Base->find('user')->where('lastName = ?', ['Doe'])->read();
