@@ -8,8 +8,8 @@ Include both `Base.php` and `Collection.php` or install [the composer package](h
 
 #### Use
 
+Create a connection:
 ```php
-# create a database connection
 $Base = new \Base\Base('mysql:host=localhost;dbname=example', 'username', 'password');
 ```
 
