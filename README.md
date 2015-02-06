@@ -1,6 +1,19 @@
 ## Base ORM
 
-Simple ORM in PHP
+Simple ORM in PHP.
+
+#### Features
+
+- __Small__  
+  consists of a couple of simple classes
+- __Intuititve__  
+  has a clear and consistent interface
+- __Ready__  
+  doesn't need models or configuration
+- __Secure__  
+  uses prepared statements to prevent SQL injections
+- __Independent__  
+  works on all frameworks and on [most of the popular RDBMS](http://php.net/manual/en/pdo.drivers.php)
 
 #### Install
 
