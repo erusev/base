@@ -85,7 +85,7 @@ $Base->find('post')->belongsTo('user')->whereEqual('user.username', 'john.doe')-
 $Base->find('post')->hasAndBelongsTo('tag')->whereEqual('tag.name', 'php')->read();
 ```
 
-Make SQL queries:
+Make queries:
 ```php
 # read all users
 $Base->read('SELECT * FROM user');
