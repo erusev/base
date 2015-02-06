@@ -31,7 +31,7 @@ class Test extends PHPUnit_Framework_TestCase
 
     function testPreparedStatement()
     {
-        $impactedRecordCount = $this->Base->update('UPDATE user SET lastName = ?', ['Smith']);
+        $impactedRecordCount = $this->Base->update('UPDATE user SET lastName = ?', array('Smith'));
 
         $this->assertEquals(2, $impactedRecordCount);
 
@@ -272,32 +272,32 @@ class Test extends PHPUnit_Framework_TestCase
 
         $Item = $this->Base->readItem('user', 1);
 
-        $ExpectedRecord = [
+        $ExpectedRecord = array(
             'id' => '1',
             'username' => 'john.doe',
             'firstName' => 'J',
             'lastName' => 'D',
-        ];
+        );
 
         $this->assertEquals($ExpectedRecord, $Item);
 
-        $result = $this->Base->createItem('user', [
+        $result = $this->Base->createItem('user', array(
             'id' => '3',
             'username' => 'james.smith',
             'firstName' => 'James',
             'lastName' => 'Smith',
-        ]);
+        ));
 
         $this->assertEquals(3, $result);
 
         $Item = $this->Base->readItem('user', 3);
 
-        $ExpectedRecord = [
+        $ExpectedRecord = array(
             'id' => '3',
             'username' => 'james.smith',
             'firstName' => 'James',
             'lastName' => 'Smith',
-        ];
+        );
 
         $this->assertEquals($ExpectedRecord, $Item);
     }
