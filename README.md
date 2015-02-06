@@ -1,6 +1,6 @@
 ## Base ORM
 
-Simple ORM in PHP.
+Because most projects don't need complicated ORMs.
 
 ### Features
 
