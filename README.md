@@ -9,6 +9,7 @@ Because most projects don't need complicated ORMs.
 - independent
 - secure
 - compatible with [most of the popular RDBMS](http://php.net/manual/en/pdo.drivers.php)
+- tested in PHP 5.3, 5.4, 5.5, 5.6 and [hhvm](http://www.hhvm.com/)
 
 ### Installation
 
