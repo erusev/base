@@ -41,7 +41,7 @@ $Base->find('user')->update(['isDeleted' => 1]);
 $Base->find('user')->count();
 
 # read all users with a lastName of "Doe"
-$Base->find('user')->where('lastName = "Doe"')->read();
+$Base->find('user')->where('lastName = ?', ['Doe'])->read();
 # read all users with a lastName of "Doe"
 $Base->find('user')->whereEqual('lastName', 'Doe')->read();
 # read all users with a lastName that is not "Doe"
