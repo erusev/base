@@ -2,7 +2,7 @@
 
 Simple ORM in PHP.
 
-#### Features
+### Features
 
 - simple
 - intuitive
@@ -10,11 +10,11 @@ Simple ORM in PHP.
 - secure
 - compatible with [most of the popular RDBMS](http://php.net/manual/en/pdo.drivers.php)
 
-#### Install
+### Installation
 
 Include both `Base.php` and `Collection.php` or install [the composer package](https://packagist.org/packages/erusev/base)
 
-#### Use
+### Example
 
 Create a connection:
 ```php
