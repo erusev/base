@@ -8,7 +8,7 @@ Because most projects don't need complicated ORMs.
 - intuitive
 - independent
 - secure
-- compatible with [most of the popular RDBMS](http://php.net/manual/en/pdo.drivers.php)
+- compatible with [most of the popular adapters](http://php.net/manual/en/pdo.drivers.php)
 - tested in PHP 5.3, 5.4, 5.5, 5.6 and [hhvm](http://www.hhvm.com/)
 
 ### Installation
@@ -36,20 +36,6 @@ Read / update / count collections:
 ```php
 # read all users
 $Base->find('user')->read();
-# read all users represented with an id and an email
-$Base->find('user')->read('id, email');
-# read the first user
-$Base->find('user')->readRecord();
-# read the first user represented with a username and a token
-$Base->find('user')->readRecord('username, token');
-# read the first field of the first user
-$Base->find('user')->readField();
-# read username of the first user
-$Base->find('user')->readField('username');
-# read the first field of all users
-$Base->find('user')->readFields();
-# read full name of all users
-$Base->find('user')->readFields('CONCAT(firstName, " ", lastName) as name');
 # update all users
 $Base->find('user')->update(['isDeleted' => 1]);
 # count all users
