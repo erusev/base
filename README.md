@@ -11,14 +11,20 @@ Include both `Base.php` and `Collection.php` or install [the composer package](h
 ```php
 # create a database connection
 $Base = new \Base\Base('mysql:host=localhost;dbname=example', 'username', 'password');
+```
 
+Read / update / create records:
+```php
 # read user #123
 $Base->readItem('user', 123);
 # update the username of user #123
 $Base->updateItem('user', 123, ['username' => 'john.doe']);
 # create a user
 $Base->createItem('user', ['username' => 'james.smith', 'email' => 'james@example.com']);
+```
 
+Read / update / count collections:
+```php
 # read all users
 $Base->find('user')->read();
 # read all users represented with an id and an email
@@ -39,7 +45,10 @@ $Base->find('user')->readFields('CONCAT(firstName, " ", lastName) as name');
 $Base->find('user')->update(['isDeleted' => 1]);
 # count all users
 $Base->find('user')->count();
+```
 
+Filter collections:
+```php
 # read all users with a lastName of "Doe"
 $Base->find('user')->where('lastName = ?', ['Doe'])->read();
 # read all users with a lastName of "Doe"
@@ -64,14 +73,20 @@ $Base->find('user')->orderAsc('id')->read();
 $Base->find('user')->limit('1')->read();
 # read the third dozen of users
 $Base->find('user')->limit('24, 12')->read();
+```
 
+Relationships:
+```php
 # read all users that have a featured post
 $Base->find('user')->has('post')->whereEqual('post.isFeatured', 1)->read();
 # read all posts of "john.doe"
 $Base->find('post')->belongsTo('user')->whereEqual('user.username', 'john.doe')->read();
 # read all posts that are tagged with "php"
 $Base->find('post')->hasAndBelongsTo('tag')->whereEqual('tag.name', 'php')->read();
+```
 
+Make SQL queries:
+```php
 # read all users
 $Base->read('SELECT * FROM user');
 # read user #123
