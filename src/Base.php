@@ -98,7 +98,7 @@ class Base
     {
         $statement = "INSERT INTO `$table` SET";
 
-        $parameters = [];
+        $parameters = array();
 
         foreach ($Data as $name => $value)
         {
