@@ -38,8 +38,8 @@ Read / update / count collections:
 $Base->find('user')->read();
 # read all users that have a featured post
 $Base->find('user')->has('post')->whereEqual('post.isFeatured', 1)->read();
-# read latest 20 users that don't have a location set
-$Base->find('user')->whereNull('location')->limit(20)->order('created_at')->read();
+# read the 20 most recently created users
+$Base->find('user')->limit(20)->orderDesc('created_at')->read();
 # update isDeleted field of users #1 and #2
 $Base->find('user')->whereIn('id', [1, 2])->update(['isDeleted' => 1]);
 # count users that don't have a location
