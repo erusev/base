@@ -29,7 +29,7 @@ $Base->readItem('user', 123);
 # update the username of user #123
 $Base->updateItem('user', 123, ['username' => 'john.doe']);
 # create a user
-$Base->createItem('user', ['username' => 'james.smith', 'email' => 'james@example.com']);
+$Base->createItem('user', ['username' => 'jane.doe', 'email' => 'jane@example.com']);
 ```
 
 Read / update / count collections:
@@ -38,8 +38,8 @@ Read / update / count collections:
 $Base->find('user')->read();
 # read all users that have a featured post
 $Base->find('user')->has('post')->whereEqual('post.isFeatured', 1)->read();
-# read the 20 most recently created users
-$Base->find('user')->limit(20)->orderDesc('created_at')->read();
+# read the email addresses of the 20 most recent users
+$Base->find('user')->limit(20)->orderDesc('createdAt')->readFields('email');
 # update isDeleted field of users #1 and #2
 $Base->find('user')->whereIn('id', [1, 2])->update(['isDeleted' => 1]);
 # count users that don't have a location
