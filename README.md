@@ -9,7 +9,7 @@ Because most projects don't need complicated ORMs.
 - Independent
 - Secure
 - Based on [PDO](http://php.net/manual/en/book.pdo.php)
-- Tested in PHP 5.3, 5.4, 5.5, 5.6 and [HHVM](http://hhvm.com/)
+- Tested in 5.3, 5.4, 5.5, 5.6 and [HHVM](http://hhvm.com/)
 
 ### Installation
 
