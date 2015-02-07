@@ -19,6 +19,7 @@ Include both `Base.php` and `Collection.php` or install [the composer package](h
 
 Create a connection:
 ```php
+# the constructor takes the same parameters as the PDO constructor
 $Base = new \Base\Base('mysql:host=localhost;dbname=example', 'username', 'password');
 ```
 
@@ -37,11 +38,11 @@ Read / update / count collections:
 # read all users
 $Base->find('user')->read();
 # read all users that have a featured post
-$Base->find('user')->has('post')->whereEqual('post.isFeatured', 1)->read();
+$Base->find('user')->has('post')->whereEqual('post.is_featured', 1)->read();
 # read the email addresses of the 20 most popular users
 $Base->find('user')->limit(20)->orderDesc('reputation')->readFields('email');
-# update isDeleted field of users #1 and #2
-$Base->find('user')->whereIn('id', [1, 2])->update(['isDeleted' => 1]);
+# update is_verified field of users #1 and #2
+$Base->find('user')->whereIn('id', [1, 2])->update(['is_verified' => 1]);
 # count users that don't have a location
 $Base->find('user')->whereNull('location')->count();
 ```
@@ -57,5 +58,5 @@ $Base->readField('SELECT username FROM user WHERE id = ?', [123]);
 # read all usernames
 $Base->readFields('SELECT username FROM user');
 # update all users
-$Base->update('UPDATE INTO user SET updated = ?', [1]);
+$Base->update('UPDATE INTO user SET is_verified = ?', [1]);
 ```
