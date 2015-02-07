@@ -38,7 +38,7 @@ Read / update / count collections:
 $Base->find('user')->read();
 # read all users that have a featured post
 $Base->find('user')->has('post')->whereEqual('post.isFeatured', 1)->read();
-# read the email addresses of the 20 most recent users
+# read the email addresses of the 20 most popular users
 $Base->find('user')->limit(20)->orderDesc('reputation')->readFields('email');
 # update isDeleted field of users #1 and #2
 $Base->find('user')->whereIn('id', [1, 2])->update(['isDeleted' => 1]);
