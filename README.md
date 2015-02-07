@@ -36,48 +36,17 @@ Read / update / count collections:
 ```php
 # read all users
 $Base->find('user')->read();
-# read users that have a featured post
 # read all users that have a featured post
 $Base->find('user')->has('post')->whereEqual('post.isFeatured', 1)->read();
-# read all posts of "john.doe" ordered by time created
-$Base->find('post')->belongsTo('user')->whereEqual('user.username', 'john')->orderDesc('created_at')->read();
-# read all posts that are tagged with "php"
-$Base->find('post')->hasAndBelongsTo('tag')->whereEqual('tag.name', 'php')->read();
-# update all users
-$Base->find('user')->update(['isDeleted' => 1]);
-# count all users
-$Base->find('user')->count();
+# read latest 20 users that don't have a location set
+$Base->find('user')->whereNull('location')->limit(20)->order('created_at')->read();
+# update isDeleted field of users #1 and #2
+$Base->find('user')->whereIn('id', [1, 2])->update(['isDeleted' => 1]);
+# count users that don't have a location
+$Base->find('user')->whereNull('location')->count();
 ```
 
-Handle collections:
-```php
-# read all users with a lastName of "Doe"
-$Base->find('user')->where('lastName = ?', ['Doe'])->read();
-# read all users with a lastName of "Doe"
-$Base->find('user')->whereEqual('lastName', 'Doe')->read();
-# read all users with a lastName that is not "Doe"
-$Base->find('user')->whereNotEqual('lastName', 'Doe')->read();
-# read all users with a lastName of either "Doe" or "Smith"
-$Base->find('user')->whereIn('lastName', ['Doe', 'Smith'])->read();
-# read all users with a lastName that is neither "Doe" or "Smith"
-$Base->find('user')->whereNotIn('lastName', ['Doe', 'Smith'])->read();
-# read all users with no lastName
-$Base->find('user')->whereNull('lastName')->read();
-# read all users with a lastName
-$Base->find('user')->whereNotNull('lastName')->read();
-# read all users in descending order
-$Base->find('user')->order('id DESC')->read();
-# read all users in descending order
-$Base->find('user')->orderDesc('id')->read();
-# read all users in ascending order
-$Base->find('user')->orderAsc('id')->read();
-# read the first user
-$Base->find('user')->limit('1')->read();
-# read the third dozen of users
-$Base->find('user')->limit('24, 12')->read();
-```
-
-Make queries:
+Execute queries:
 ```php
 # read all users
 $Base->read('SELECT * FROM user');
