@@ -27,9 +27,9 @@ Read / update / create records:
 ```php
 # read user #123
 $Base->readItem('user', 123);
-# update the username of user #123
+# update the username of the same user
 $Base->updateItem('user', 123, ['username' => 'john.doe']);
-# create a user
+# create another user
 $Base->createItem('user', ['username' => 'jane.doe', 'email' => 'jane@example.com']);
 ```
 
