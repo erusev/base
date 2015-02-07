@@ -39,8 +39,8 @@ $Base->find('user')->read();
 # read users that have a featured post
 # read all users that have a featured post
 $Base->find('user')->has('post')->whereEqual('post.isFeatured', 1)->read();
-# read all posts of "john.doe"
-$Base->find('post')->belongsTo('user')->whereEqual('user.username', 'john.doe')->orderDesc('created_at)->read();
+# read all posts of "john.doe" ordered by time created
+$Base->find('post')->belongsTo('user')->whereEqual('user.username', 'john')->orderDesc('created_at')->read();
 # read all posts that are tagged with "php"
 $Base->find('post')->hasAndBelongsTo('tag')->whereEqual('tag.name', 'php')->read();
 # update all users
