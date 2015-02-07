@@ -8,8 +8,8 @@ Because most projects don't need complicated ORMs.
 - intuitive
 - independent
 - secure
-- compatible with [most of the popular adapters](http://php.net/manual/en/pdo.drivers.php)
-- tested in PHP 5.3, 5.4, 5.5, 5.6 and hhvm
+- based on [pdo](http://php.net/manual/en/book.pdo.php)
+- tested in php 5.3, 5.4, 5.5, 5.6 and hhvm
 
 ### Installation
 
