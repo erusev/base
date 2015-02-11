@@ -29,6 +29,7 @@ class Collection
 
     private $tableClause;
     private $whereClause;
+    private $groupClause;
     private $limitClause;
     private $orderClause;
 
@@ -201,6 +202,21 @@ class Collection
     }
 
     #
+    # GROUP BY
+    #
+
+    /**
+     * @param string $group
+     * @return $this
+     */
+    function group($group)
+    {
+        $this->groupClause = $group;
+
+        return $this;
+    }
+
+    #
     # LIMIT
     #
 
@@ -365,6 +381,7 @@ class Collection
 
         $query = "SELECT $selectExpression FROM $this->tableClause WHERE $this->whereClause";
 
+        $this->groupClause and $query .= " GROUP BY $this->groupClause";
         $this->orderClause and $query .= " ORDER BY $this->orderClause";
         $this->limitClause and $query .= " LIMIT $this->limitClause";
 
