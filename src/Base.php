@@ -16,6 +16,11 @@ class Base
 
     private $PDO;
 
+    /**
+     * @param string $statement
+     * @param array $parameters
+     * @return array
+     */
     function read($statement, array $parameters = array())
     {
         $PDOStatement = $this->execute($statement, $parameters);
@@ -25,6 +30,11 @@ class Base
         return $Records;
     }
 
+    /**
+     * @param string $statement
+     * @param array $parameters
+     * @return array
+     */
     function readField($statement, array $parameters = array())
     {
         $PDOStatement = $this->execute($statement, $parameters);
@@ -39,6 +49,11 @@ class Base
         return $Record;
     }
 
+    /**
+     * @param string $statement
+     * @param array $parameters
+     * @return array
+     */
     function readFields($statement, array $parameters = array())
     {
         $PDOStatement = $this->execute($statement, $parameters);
@@ -48,6 +63,11 @@ class Base
         return $fields;
     }
 
+    /**
+     * @param string $statement
+     * @param array $parameters
+     * @return array
+     */
     function readRecord($statement, array $parameters = array())
     {
         $PDOStatement = $this->execute($statement, $parameters);
@@ -62,6 +82,11 @@ class Base
         return $Record;
     }
 
+    /**
+     * @param string $table
+     * @param int $id
+     * @return array
+     */
     function readItem($table, $id)
     {
         $Record = $this->find($table)
@@ -71,6 +96,11 @@ class Base
         return $Record;
     }
 
+    /**
+     * @param string $statement
+     * @param array $parameters
+     * @return int
+     */
     function update($statement, array $parameters = array())
     {
         $PDOStatement = $this->execute($statement, $parameters);
@@ -80,6 +110,12 @@ class Base
         return $impactedRecordCount;
     }
 
+    /**
+     * @param string $table
+     * @param int $id
+     * @param array $Data
+     * @return int
+     */
     function updateItem($table, $id, array $Data)
     {
         $affectedRecordCount = $this->find($table)
@@ -116,6 +152,10 @@ class Base
         return $lastId;
     }
 
+    /**
+     * @param string $table
+     * @return Collection
+     */
     function find($table)
     {
         $Collection = new Collection($this, $table);
@@ -123,6 +163,12 @@ class Base
         return $Collection;
     }
 
+    /**
+     * @param string $statement
+     * @param array $parameters
+     * @return \PDOStatement
+     * @throws Exception
+     */
     function execute($statement, array $parameters = array())
     {
         $PDOStatement = $this->PDO->prepare($statement);
