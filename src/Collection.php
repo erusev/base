@@ -2,14 +2,11 @@
 
 namespace Base;
 
-use Exception;
-
 class Collection
 {
     /**
      * @param Base $Base
      * @param string $table
-     * @throws Exception
      */
     function __construct(Base $Base, $table)
     {
