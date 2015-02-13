@@ -4,6 +4,7 @@ namespace Base;
 
 use Exception;
 use PDO;
+use PDOStatement;
 
 class Base
 {
@@ -166,7 +167,7 @@ class Base
     /**
      * @param string $statement
      * @param array $parameters
-     * @return \PDOStatement
+     * @return PDOStatement
      * @throws Exception
      */
     function execute($statement, array $parameters = array())
