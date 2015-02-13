@@ -118,11 +118,11 @@ class Base
      */
     function updateItem($table, $id, array $Data)
     {
-        $affectedRecordCount = $this->find($table)
+        $impactedRecordCount = $this->find($table)
             ->whereEqual('id', $id)
             ->update($Data);
 
-        return $affectedRecordCount;
+        return $impactedRecordCount;
     }
 
     /**
