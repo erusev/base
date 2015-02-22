@@ -31,7 +31,7 @@ class Test extends PHPUnit_Framework_TestCase
 
     function testPreparedStatement()
     {
-        $impactedRecordCount = $this->Base->update('UPDATE user SET lastName = ?', array('Smith'));
+        $impactedRecordCount = $this->Base->update('UPDATE user SET last_name = ?', array('Smith'));
 
         $this->assertEquals(2, $impactedRecordCount);
 
@@ -41,14 +41,14 @@ class Test extends PHPUnit_Framework_TestCase
             array(
                 'id' => '1',
                 'username' => 'john.doe',
-                'firstName' => 'John',
-                'lastName' => 'Smith',
+                'first_name' => 'John',
+                'last_name' => 'Smith',
             ),
             array(
                 'id' => '2',
                 'username' => 'jane.doe',
-                'firstName' => 'Jane',
-                'lastName' => 'Smith',
+                'first_name' => 'Jane',
+                'last_name' => 'Smith',
             ),
         );
 
@@ -58,7 +58,7 @@ class Test extends PHPUnit_Framework_TestCase
     function testCollection()
     {
         $impactedRecordCount = $this->Base->find('user')->update(array(
-            'lastName' => 'Smith',
+            'last_name' => 'Smith',
         ));
 
         $this->assertEquals(2, $impactedRecordCount);
@@ -69,14 +69,14 @@ class Test extends PHPUnit_Framework_TestCase
             array(
                 'id' => '1',
                 'username' => 'john.doe',
-                'firstName' => 'John',
-                'lastName' => 'Smith',
+                'first_name' => 'John',
+                'last_name' => 'Smith',
             ),
             array(
                 'id' => '2',
                 'username' => 'jane.doe',
-                'firstName' => 'Jane',
-                'lastName' => 'Smith',
+                'first_name' => 'Jane',
+                'last_name' => 'Smith',
             ),
         );
 
@@ -94,8 +94,8 @@ class Test extends PHPUnit_Framework_TestCase
             array(
                 'id' => '2',
                 'username' => 'jane.doe',
-                'firstName' => 'Jane',
-                'lastName' => 'Smith',
+                'first_name' => 'Jane',
+                'last_name' => 'Smith',
             ),
         );
 
@@ -109,13 +109,13 @@ class Test extends PHPUnit_Framework_TestCase
         $ExpectedRecord = array(
             'id' => '1',
             'username' => 'john.doe',
-            'firstName' => 'John',
-            'lastName' => 'Doe',
+            'first_name' => 'John',
+            'last_name' => 'Doe',
         );
 
         $this->assertEquals($ExpectedRecord, $Record);
 
-        $Record = $this->Base->find('user')->readRecord('id, CONCAT(firstName, " ", lastName) as name');
+        $Record = $this->Base->find('user')->readRecord('id, CONCAT(first_name, " ", last_name) as name');
 
         $ExpectedRecord = array(
             'id' => '1',
@@ -149,7 +149,7 @@ class Test extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(array(1, 2), $fields);
 
-        $fields = $this->Base->find('user')->readFields('firstName');
+        $fields = $this->Base->find('user')->readFields('first_name');
 
         $this->assertEquals(array('John', 'Jane'), $fields);
     }
@@ -158,19 +158,19 @@ class Test extends PHPUnit_Framework_TestCase
     {
         $fields = $this->Base->find('user')
             ->where('id = 2')
-            ->readFields('firstName');
+            ->readFields('first_name');
 
         $this->assertEquals(array('Jane'), $fields);
 
         $fields = $this->Base->find('user')
             ->whereEqual('id', 2)
-            ->readFields('firstName');
+            ->readFields('first_name');
 
         $this->assertEquals(array('Jane'), $fields);
 
         $fields = $this->Base->find('user')
             ->whereNotEqual('id', 2)
-            ->readFields('firstName');
+            ->readFields('first_name');
 
         $this->assertEquals(array('John'), $fields);
 
@@ -283,8 +283,8 @@ class Test extends PHPUnit_Framework_TestCase
     function testItem()
     {
         $result = $this->Base->updateItem('user', 1, array(
-            'firstName' => 'J',
-            'lastName' => 'D',
+            'first_name' => 'J',
+            'last_name' => 'D',
         ));
 
         $this->assertEquals(1, $result);
@@ -294,8 +294,8 @@ class Test extends PHPUnit_Framework_TestCase
         $ExpectedRecord = array(
             'id' => '1',
             'username' => 'john.doe',
-            'firstName' => 'J',
-            'lastName' => 'D',
+            'first_name' => 'J',
+            'last_name' => 'D',
         );
 
         $this->assertEquals($ExpectedRecord, $Item);
@@ -303,8 +303,8 @@ class Test extends PHPUnit_Framework_TestCase
         $result = $this->Base->createItem('user', array(
             'id' => '3',
             'username' => 'james.smith',
-            'firstName' => 'James',
-            'lastName' => 'Smith',
+            'first_name' => 'James',
+            'last_name' => 'Smith',
         ));
 
         $this->assertEquals(3, $result);
@@ -314,8 +314,8 @@ class Test extends PHPUnit_Framework_TestCase
         $ExpectedRecord = array(
             'id' => '3',
             'username' => 'james.smith',
-            'firstName' => 'James',
-            'lastName' => 'Smith',
+            'first_name' => 'James',
+            'last_name' => 'Smith',
         );
 
         $this->assertEquals($ExpectedRecord, $Item);

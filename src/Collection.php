@@ -41,7 +41,7 @@ class Collection
      */
     function has($table, $foreignKey = null)
     {
-        $foreignKey = $foreignKey ?: $this->table;
+        $foreignKey = $foreignKey ?: $this->table.self::$suffix;
 
         $this->tableClause .= " JOIN `$table` ON `$this->table`.id = `$table`.`$foreignKey`";
 
@@ -55,7 +55,7 @@ class Collection
      */
     function belongsTo($table, $foreignKey = null)
     {
-        $foreignKey = $foreignKey ?: $table;
+        $foreignKey = $foreignKey ?: $table.self::$suffix;
 
         $this->tableClause .= " JOIN `$table` ON `$this->table`.`$foreignKey` = `$table`.`id`";
 
@@ -74,9 +74,12 @@ class Collection
 
         $joinTable = join('_', $tables);
 
+        $aKey = $this->table.self::$suffix;
+        $bKey = $table.self::$suffix;
+
         $this->tableClause .= "
-			JOIN `$joinTable` ON `$this->table`.`id` = `$joinTable`.`$this->table`
-			JOIN `$table` ON `$table`.id = `$joinTable`.`$table`";
+			JOIN `$joinTable` ON `$this->table`.`id` = `$joinTable`.`$aKey`
+			JOIN `$table` ON `$table`.id = `$joinTable`.`$bKey`";
 
         return $this;
     }
@@ -412,4 +415,15 @@ class Collection
 
         return $path;
     }
+
+    #
+    # Static
+    #
+
+    /**
+     * The suffix of FK field names.
+     *
+     * @var string
+     */
+    static $suffix = '_id';
 }

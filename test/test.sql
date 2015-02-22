@@ -3,13 +3,13 @@
 
 CREATE TABLE `post` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `user` int(11) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
   `title` varchar(255) DEFAULT NULL,
   `text` text,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `post` (`id`, `user`, `title`, `text`)
+INSERT INTO `post` (`id`, `user_id`, `title`, `text`)
 VALUES
 	(1,1,'First Post','This is a post about literature.'),
 	(2,1,'Second Post','This is a post about literature and history.'),
@@ -21,12 +21,12 @@ VALUES
 
 CREATE TABLE `post_tag` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `post` int(11) DEFAULT NULL,
-  `tag` int(11) DEFAULT NULL,
+  `post_id` int(11) DEFAULT NULL,
+  `tag_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `post_tag` (`id`, `post`, `tag`)
+INSERT INTO `post_tag` (`id`, `post_id`, `tag_id`)
 VALUES
 	(1,1,1),
 	(2,2,1),
@@ -55,12 +55,12 @@ VALUES
 CREATE TABLE `user` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `username` varchar(255) DEFAULT NULL,
-  `firstName` varchar(255) DEFAULT NULL,
-  `lastName` varchar(255) DEFAULT NULL,
+  `first_name` varchar(255) DEFAULT NULL,
+  `last_name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `user` (`id`, `username`, `firstName`, `lastName`)
+INSERT INTO `user` (`id`, `username`, `first_name`, `last_name`)
 VALUES
 	(1,'john.doe','John','Doe'),
 	(2,'jane.doe','Jane','Doe');
