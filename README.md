@@ -1,5 +1,8 @@
 ## Base ORM
 
+[![Build Status](http://img.shields.io/travis/erusev/base.svg?style=flat-square)](https://travis-ci.org/erusev/base)
+[![Latest Stable Version](http://img.shields.io/packagist/v/erusev/base.svg?style=flat-square)](https://packagist.org/packages/erusev/base)
+
 Because most projects don't need complicated ORMs.
 
 ### Features
