@@ -37,14 +37,22 @@ Read / update / count collections:
 ```php
 # read all users
 $Base->find('user')->read();
-# read all users that have a featured post
-$Base->find('user')->has('post')->whereEqual('post.is_featured', 1)->read();
 # read the email addresses of the 20 most popular users
 $Base->find('user')->limit(20)->orderDesc('reputation')->readFields('email');
 # update is_verified field of users #1 and #2
 $Base->find('user')->whereIn('id', [1, 2])->update(['is_verified' => 1]);
 # count users that don't have a location
 $Base->find('user')->whereNull('location')->count();
+```
+
+Relationships:
+```php
+# read all users that have a featured post
+$Base->find('user')->has('post')->whereEqual('post.is_featured', 1)->read();
+# read all posts that belong to user #123 ordered by title
+$Base->find('post')->belongsTo('user')->whereEqual('user.id', 123)->orderAsc('post.title')->readRecord();
+# read the titles of the last 5 posts that have a "php" tag
+$Base->find('post')->hasAndBelongsTo('tag')->whereEqual('tag.name', 'php')->limit(5)->orderDesc('id')->readFields('title');
 ```
 
 Execute queries:
