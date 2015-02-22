@@ -153,6 +153,15 @@ class Base
         return $lastId;
     }
 
+    function deleteItem($table, $id)
+    {
+        $impactedRecordCount = $this->find($table)
+            ->whereEqual('id', $id)
+            ->delete();
+
+        return $impactedRecordCount;
+    }
+
     /**
      * @param string $table
      * @return Collection

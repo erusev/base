@@ -281,7 +281,7 @@ class Collection
      */
     function read($selectExpression = null)
     {
-        $statement = $this->composeStatement($selectExpression);
+        $statement = $this->composeReadStatement($selectExpression);
 
         $Records = $this->Base->read($statement, $this->parameters);
 
@@ -294,7 +294,7 @@ class Collection
      */
     function readRecord($selectExpression = null)
     {
-        $statement = $this->composeStatement($selectExpression);
+        $statement = $this->composeReadStatement($selectExpression);
 
         $Record = $this->Base->readRecord($statement, $this->parameters);
 
@@ -307,7 +307,7 @@ class Collection
      */
     function readField($selectExpression = null)
     {
-        $statement = $this->composeStatement($selectExpression);
+        $statement = $this->composeReadStatement($selectExpression);
 
         $field = $this->Base->readField($statement, $this->parameters);
 
@@ -320,7 +320,7 @@ class Collection
      */
     function readFields($selectExpression = null)
     {
-        $statement = $this->composeStatement($selectExpression);
+        $statement = $this->composeReadStatement($selectExpression);
 
         $fields = $this->Base->readFields($statement, $this->parameters);
 
@@ -364,15 +364,27 @@ class Collection
         return $impactedRecordCount;
     }
 
+    function delete()
+    {
+        $statement = "DELETE FROM $this->tableClause WHERE $this->whereClause";
+
+        $this->orderClause and $statement .= " ORDER BY $this->orderClause";
+        $this->limitClause and $statement .= " LIMIT $this->limitClause";
+
+        $impactedRecordCount = $this->Base->update($statement, $this->parameters);
+
+        return $impactedRecordCount;
+    }
+
     #
-    # Private
+    # Protected
     #
 
     /**
      * @param string $selectExpression
      * @return string
      */
-    private function composeStatement($selectExpression = null)
+    protected function composeReadStatement($selectExpression = null)
     {
         $selectExpression = $selectExpression ?: "`$this->table`.*";
 
@@ -389,7 +401,7 @@ class Collection
      * @param string $path
      * @return string
      */
-    private function sanitizePath($path)
+    protected function sanitizePath($path)
     {
         $path = str_replace('`', '', $path);
         $path = str_replace('.', '`.`', $path);

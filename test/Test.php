@@ -81,6 +81,25 @@ class Test extends PHPUnit_Framework_TestCase
         );
 
         $this->assertEquals($ExpectedRecords, $Records);
+
+        $impactedRecordCount = $this->Base->find('user')
+            ->whereEqual('username', 'john.doe')
+            ->delete();
+
+        $this->assertEquals(1, $impactedRecordCount);
+
+        $Records = $this->Base->find('user')->read();
+
+        $ExpectedRecords = array(
+            array(
+                'id' => '2',
+                'username' => 'jane.doe',
+                'firstName' => 'Jane',
+                'lastName' => 'Smith',
+            ),
+        );
+
+        $this->assertEquals($ExpectedRecords, $Records);
     }
 
     function testCollectionRecord()
@@ -300,5 +319,13 @@ class Test extends PHPUnit_Framework_TestCase
         );
 
         $this->assertEquals($ExpectedRecord, $Item);
+
+        $result = $this->Base->deleteItem('user', 1);
+
+        $this->assertEquals(1, $result);
+
+        $result = $this->Base->find('user')->count();
+
+        $this->assertEquals(2, $result);
     }
 }
