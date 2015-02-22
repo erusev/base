@@ -364,6 +364,9 @@ class Collection
         return $impactedRecordCount;
     }
 
+    /**
+     * @return int
+     */
     function delete()
     {
         $statement = "DELETE FROM $this->tableClause WHERE $this->whereClause";

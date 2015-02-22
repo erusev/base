@@ -153,6 +153,11 @@ class Base
         return $lastId;
     }
 
+    /**
+     * @param string $table
+     * @param int $id
+     * @return int
+     */
     function deleteItem($table, $id)
     {
         $impactedRecordCount = $this->find($table)
