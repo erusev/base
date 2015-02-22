@@ -8,9 +8,9 @@ use PDOStatement;
 
 class Base
 {
-    function __construct($dsn, $username = null, $password = null)
+    function __construct($dsn, $username = null, $password = null, array $options = array())
     {
-        $PDO = new PDO($dsn, $username, $password);
+        $PDO = new PDO($dsn, $username, $password, $options);
 
         $this->PDO = $PDO;
     }
