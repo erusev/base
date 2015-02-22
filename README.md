@@ -69,6 +69,10 @@ $Base->readFields('SELECT username FROM user');
 $Base->update('UPDATE INTO user SET is_verified = ?', [1]);
 ```
 
+### Requirements
+
+In order for the methods that handle relationships to work, table names should be singular (e.g. `user` instead of `users`).
+
 ### Status
 
 [![Build Status](http://img.shields.io/travis/erusev/base.svg?style=flat-square)](https://travis-ci.org/erusev/base)
