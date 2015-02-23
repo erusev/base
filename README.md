@@ -31,6 +31,8 @@ $Base->readItem('user', 123);
 $Base->updateItem('user', 123, ['username' => 'john.doe']);
 # create another user
 $Base->createItem('user', ['username' => 'jane.doe', 'email' => 'jane@example.com']);
+# delete user #123
+$Base->deleteItem('user', 123);
 ```
 
 Read / update / count collections:
