@@ -23,7 +23,7 @@ Connect to a database:
 $Base = new \Base\Base('mysql:host=localhost;dbname=example', 'username', 'password');
 ```
 
-Handle records:
+Work with records:
 ```php
 # read user #1
 $Base->readItem('user', 1);
@@ -35,7 +35,7 @@ $Base->createItem('user', ['username' => 'jane.doe', 'email' => 'jane@example.co
 $Base->deleteItem('user', 1);
 ```
 
-Handle collections:
+Work with collections:
 ```php
 # read all users
 $Base->find('user')->read();
@@ -75,7 +75,7 @@ $Base->update('UPDATE INTO user SET is_verified = ?', [1]);
 
 ### Requirements
 
-Table names must be singular (e.g. `user` instead of `users`).
+Table names must be singular - e.g. `user` instead of `users`.
 
 ### Status
 
