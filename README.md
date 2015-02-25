@@ -23,7 +23,7 @@ Connection to a database:
 $Base = new \Base\Base('mysql:host=localhost;dbname=example', 'username', 'password');
 ```
 
-Read / update / create / delete records:
+Handle records:
 ```php
 # read user #123
 $Base->readItem('user', 123);
@@ -41,18 +41,35 @@ $Base->createItem('user', ['username' => 'jane.doe', 'email' => 'jane@example.co
 $Base->deleteItem('user', 123);
 ```
 
-Read / update / count / delete collections:
+Handle collections:
 ```php
 # read all users
 $Base->find('user')->read();
+```
+```php
 # read the user with the highest reputation
-$Base->find('user')->limit(1)->orderDesc('reputation')->readRecord();
+$Base->find('user')
+  ->limit(1)
+  ->orderDesc('reputation')
+  ->readRecord();
+```
+```php
 # update is_verified field of users #1 and #2
-$Base->find('user')->whereIn('id', [1, 2])->update(['is_verified' => 1]);
+$Base->find('user')
+  ->whereIn('id', [1, 2])
+  ->update(['is_verified' => 1]);
+```
+```php
 # count users that don't have a location
-$Base->find('user')->whereNull('location')->count();
-# delete accounts that are not verified and more than a month old
-$Base->find('user')->where('is_verified = 0 AND created_at <= DATE_SUB(NOW(),INTERVAL 1 MONTH)')->delete();
+$Base->find('user')
+  ->whereNull('location')
+  ->count();
+```
+```php
+# delete users that are not verified and have been created more than a month ago
+$Base->find('user')
+  ->where('is_verified = 0 AND created_at <= DATE_SUB(NOW(),INTERVAL 1 MONTH)')
+  ->delete();
 ```
 
 Handle relationships:
@@ -68,14 +85,14 @@ $Base->find('user')
 $Base->find('post')
   ->belongsTo('user')
   ->whereEqual('user.id', 1)
-  ->orderDesc('id')
+  ->orderDesc('post.id')
   ->readRecord();
 ```
 ```php
-# read the titles of the posts that have a "php" tag
+# read the titles of the posts that have a "php" label
 $Base->find('post')
-  ->hasAndBelongsTo('tag')
-  ->whereEqual('tag.name', 'php')
+  ->hasAndBelongsTo('label')
+  ->whereEqual('label.name', 'php')
   ->readFields('title');
 ```
 
@@ -83,12 +100,20 @@ Execute queries:
 ```php
 # read all users
 $Base->read('SELECT * FROM user');
+```
+```php
 # read user #123
 $Base->readRecord('SELECT * FROM user WHERE id = ?', [123]);
+```
+```php
 # read the username of user #123
 $Base->readField('SELECT username FROM user WHERE id = ?', [123]);
+```
+```php
 # read all usernames
 $Base->readFields('SELECT username FROM user');
+```
+```php
 # update all users
 $Base->update('UPDATE INTO user SET is_verified = ?', [1]);
 ```
