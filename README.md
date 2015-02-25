@@ -52,11 +52,23 @@ $Base->find('user')->where('is_verified = 0 AND created_at <= DATE_SUB(NOW(),INT
 Handle relationships:
 ```php
 # read all users that have a featured post
-$Base->find('user')->has('post')->whereEqual('post.is_featured', 1)->read();
+$Base->find('user')
+  ->has('post')
+  ->whereEqual('post.is_featured', 1)
+  ->read();
+  
 # read the last post of user #1
-$Base->find('post')->belongsTo('user')->whereEqual('user.id', 1)->orderDesc('id')->readRecord();
+$Base->find('post')
+  ->belongsTo('user')
+  ->whereEqual('user.id', 1)
+  ->orderDesc('id')
+  ->readRecord();
+  
 # read the titles of the posts that have a "php" tag
-$Base->find('post')->hasAndBelongsTo('tag')->whereEqual('tag.name', 'php')->readFields('title');
+$Base->find('post')
+  ->hasAndBelongsTo('tag')
+  ->whereEqual('tag.name', 'php')
+  ->readFields('title');
 ```
 
 Execute queries:
