@@ -15,7 +15,7 @@ Because most projects don't need complicated ORMs.
 
 Include both `Base.php` and `Collection.php` or install [the composer package](https://packagist.org/packages/erusev/base)
 
-### Example
+### Examples
 
 Connect to a database:
 ```php
@@ -29,7 +29,7 @@ Work with records:
 $Base->readItem('user', 1);
 # update the username of user 1
 $Base->updateItem('user', 1, ['username' => 'john.doe']);
-# create another user
+# create a user
 $Base->createItem('user', ['username' => 'jane.doe', 'email' => 'jane@example.com']);
 # delete user 1
 $Base->deleteItem('user', 1);
