@@ -17,13 +17,13 @@ Include both `Base.php` and `Collection.php` or install [the composer package](h
 
 ### Example
 
-Create a connection:
+Connection to a database:
 ```php
 # the constructor takes the same parameters as the PDO constructor
 $Base = new \Base\Base('mysql:host=localhost;dbname=example', 'username', 'password');
 ```
 
-Read / update / create records:
+Read / update / create / delete records:
 ```php
 # read user #123
 $Base->readItem('user', 123);
@@ -35,7 +35,7 @@ $Base->createItem('user', ['username' => 'jane.doe', 'email' => 'jane@example.co
 $Base->deleteItem('user', 123);
 ```
 
-Read / update / count collections:
+Read / update / count / delete collections:
 ```php
 # read all users
 $Base->find('user')->read();
@@ -45,6 +45,8 @@ $Base->find('user')->limit(1)->orderDesc('reputation')->readRecord();
 $Base->find('user')->whereIn('id', [1, 2])->update(['is_verified' => 1]);
 # count users that don't have a location
 $Base->find('user')->whereNull('location')->count();
+# delete posts that are marked as deleted
+$Base->find('post')->whereEqual('is_deleted', 1)->delete();
 ```
 
 Handle relationships:
