@@ -53,8 +53,8 @@ Handle relationships:
 ```php
 # read all users that have a featured post
 $Base->find('user')->has('post')->whereEqual('post.is_featured', 1)->read();
-# read the last post of user #123
-$Base->find('post')->belongsTo('user')->whereEqual('user.id', 123)->orderDesc('post.id')->readRecord();
+# read the last post of user #1
+$Base->find('post')->belongsTo('user')->whereEqual('user.id', 1)->orderDesc('id')->readRecord();
 # read the titles of the posts that have a "php" tag
 $Base->find('post')->hasAndBelongsTo('tag')->whereEqual('tag.name', 'php')->readFields('title');
 ```
