@@ -27,10 +27,16 @@ Read / update / create / delete records:
 ```php
 # read user #123
 $Base->readItem('user', 123);
+```
+```php
 # update the username of the same user
 $Base->updateItem('user', 123, ['username' => 'john.doe']);
+```
+```php
 # create another user
 $Base->createItem('user', ['username' => 'jane.doe', 'email' => 'jane@example.com']);
+```
+```php
 # delete user #123
 $Base->deleteItem('user', 123);
 ```
@@ -51,19 +57,21 @@ $Base->find('user')->where('is_verified = 0 AND created_at <= DATE_SUB(NOW(),INT
 
 Handle relationships:
 ```php
-# read all users that have a featured post
+# read the users that have a featured post
 $Base->find('user')
   ->has('post')
   ->whereEqual('post.is_featured', 1)
   ->read();
-  
+```
+```php
 # read the last post of user #1
 $Base->find('post')
   ->belongsTo('user')
   ->whereEqual('user.id', 1)
   ->orderDesc('id')
   ->readRecord();
-  
+```
+```php
 # read the titles of the posts that have a "php" tag
 $Base->find('post')
   ->hasAndBelongsTo('tag')
