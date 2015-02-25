@@ -25,13 +25,13 @@ $Base = new \Base\Base('mysql:host=localhost;dbname=example', 'username', 'passw
 
 Work with records:
 ```php
-# read user #1
+# read user 1
 $Base->readItem('user', 1);
-# update the username of user #1
+# update the username of user 1
 $Base->updateItem('user', 1, ['username' => 'john.doe']);
 # create another user
 $Base->createItem('user', ['username' => 'jane.doe', 'email' => 'jane@example.com']);
-# delete user #1
+# delete user 1
 $Base->deleteItem('user', 1);
 ```
 
@@ -41,7 +41,7 @@ Work with collections:
 $Base->find('user')->read();
 # read the user with the highest reputation
 $Base->find('user')->limit(1)->orderDesc('reputation')->readRecord();
-# update is_verified field of users #1 and #2
+# update is_verified field of users 1 and 2
 $Base->find('user')->whereIn('id', [1, 2])->update(['is_verified' => 1]);
 # count users that don't have a location
 $Base->find('user')->whereNull('location')->count();
@@ -53,7 +53,7 @@ Handle relationships:
 ```php
 # read the users that have a featured post
 $Base->find('user')->has('post')->whereEqual('post.is_featured', 1)->read();
-# read the posts of user #1
+# read the posts of user 1
 $Base->find('post')->belongsTo('user')->whereEqual('user.id', 1)->read();
 # read the posts that are tagged "php"
 $Base->find('post')->hasAndBelongsTo('tag')->whereEqual('tag.name', 'php')->read();
@@ -63,9 +63,9 @@ Execute queries:
 ```php
 # read all users
 $Base->read('SELECT * FROM user');
-# read user #1
+# read user 1
 $Base->readRecord('SELECT * FROM user WHERE id = ?', [1]);
-# read the username of user #1
+# read the username of user 1
 $Base->readField('SELECT username FROM user WHERE id = ?', [1]);
 # read all usernames
 $Base->readFields('SELECT username FROM user');
