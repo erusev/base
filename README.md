@@ -25,14 +25,14 @@ $Base = new \Base\Base('mysql:host=localhost;dbname=example', 'username', 'passw
 
 Handle records:
 ```php
-# read user #123
-$Base->readItem('user', 123);
-# update the username of the same user
-$Base->updateItem('user', 123, ['username' => 'john.doe']);
+# read user #1
+$Base->readItem('user', 1);
+# update the username of user #1
+$Base->updateItem('user', 1, ['username' => 'john.doe']);
 # create another user
 $Base->createItem('user', ['username' => 'jane.doe', 'email' => 'jane@example.com']);
-# delete user #123
-$Base->deleteItem('user', 123);
+# delete user #1
+$Base->deleteItem('user', 1);
 ```
 
 Handle collections:
@@ -52,10 +52,7 @@ $Base->find('post')->where('created_at <= DATE_SUB(NOW(),INTERVAL 1 MONTH)')->de
 Handle relationships:
 ```php
 # read the users that have a featured post
-$Base->find('user')
-  ->has('post')
-  ->whereEqual('post.is_featured', 1)
-  ->read();
+$Base->find('user')->has('post')->whereEqual('post.is_featured', 1)->read();
 # read the last post of user #1
 $Base->find('post')->belongsTo('user')->whereEqual('user.id', 1)->orderDesc('post.id')->readRecord();
 # read the titles of the posts that have a "php" label
@@ -66,10 +63,10 @@ Execute queries:
 ```php
 # read all users
 $Base->read('SELECT * FROM user');
-# read user #123
-$Base->readRecord('SELECT * FROM user WHERE id = ?', [123]);
-# read the username of user #123
-$Base->readField('SELECT username FROM user WHERE id = ?', [123]);
+# read user #1
+$Base->readRecord('SELECT * FROM user WHERE id = ?', [1]);
+# read the username of user #1
+$Base->readField('SELECT username FROM user WHERE id = ?', [1]);
 # read all usernames
 $Base->readFields('SELECT username FROM user');
 # update all users
