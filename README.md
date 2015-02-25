@@ -52,7 +52,10 @@ $Base->find('post')->where('created_at <= DATE_SUB(NOW(),INTERVAL 1 MONTH)')->de
 Handle relationships:
 ```php
 # read the users that have a featured post
-$Base->find('user')->has('post')->whereEqual('post.is_featured', 1)->read();
+$Base->find('user')
+  ->has('post')
+  ->whereEqual('post.is_featured', 1)
+  ->read();
 # read the last post of user #1
 $Base->find('post')->belongsTo('user')->whereEqual('user.id', 1)->orderDesc('post.id')->readRecord();
 # read the titles of the posts that have a "php" label
