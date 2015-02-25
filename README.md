@@ -45,8 +45,8 @@ $Base->find('user')->limit(1)->orderDesc('reputation')->readRecord();
 $Base->find('user')->whereIn('id', [1, 2])->update(['is_verified' => 1]);
 # count users that don't have a location
 $Base->find('user')->whereNull('location')->count();
-# delete posts that are marked as deleted
-$Base->find('post')->whereEqual('is_deleted', 1)->delete();
+# delete accounts that are not verified and more than a month old
+$Base->find('user')->where('is_verified = 0 AND created_at <= DATE_SUB(NOW(),INTERVAL 1 MONTH)')->delete();
 ```
 
 Handle relationships:
