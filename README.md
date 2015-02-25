@@ -17,7 +17,7 @@ Include both `Base.php` and `Collection.php` or install [the composer package](h
 
 ### Example
 
-Connection to a database:
+Connect to a database:
 ```php
 # the constructor takes the same parameters as the PDO constructor
 $Base = new \Base\Base('mysql:host=localhost;dbname=example', 'username', 'password');
@@ -48,10 +48,7 @@ $Base->find('user')->read();
 ```
 ```php
 # read the user with the highest reputation
-$Base->find('user')
-  ->limit(1)
-  ->orderDesc('reputation')
-  ->readRecord();
+$Base->find('user')->limit(1)->orderDesc('reputation')->readRecord();
 ```
 ```php
 # update is_verified field of users #1 and #2
