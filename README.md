@@ -27,16 +27,10 @@ Handle records:
 ```php
 # read user #123
 $Base->readItem('user', 123);
-```
-```php
 # update the username of the same user
 $Base->updateItem('user', 123, ['username' => 'john.doe']);
-```
-```php
 # create another user
 $Base->createItem('user', ['username' => 'jane.doe', 'email' => 'jane@example.com']);
-```
-```php
 # delete user #123
 $Base->deleteItem('user', 123);
 ```
@@ -45,72 +39,36 @@ Handle collections:
 ```php
 # read all users
 $Base->find('user')->read();
-```
-```php
 # read the user with the highest reputation
 $Base->find('user')->limit(1)->orderDesc('reputation')->readRecord();
-```
-```php
 # update is_verified field of users #1 and #2
-$Base->find('user')
-  ->whereIn('id', [1, 2])
-  ->update(['is_verified' => 1]);
-```
-```php
+$Base->find('user')->whereIn('id', [1, 2])->update(['is_verified' => 1]);
 # count users that don't have a location
-$Base->find('user')
-  ->whereNull('location')
-  ->count();
-```
-```php
-# delete users that are not verified and have been created more than a month ago
-$Base->find('user')
-  ->where('is_verified = 0 AND created_at <= DATE_SUB(NOW(),INTERVAL 1 MONTH)')
-  ->delete();
+$Base->find('user')->whereNull('location')->count();
+# delete posts that are more than a month old
+$Base->find('post')->where('created_at <= DATE_SUB(NOW(),INTERVAL 1 MONTH)')->delete();
 ```
 
 Handle relationships:
 ```php
 # read the users that have a featured post
-$Base->find('user')
-  ->has('post')
-  ->whereEqual('post.is_featured', 1)
-  ->read();
-```
-```php
+$Base->find('user')->has('post')->whereEqual('post.is_featured', 1)->read();
 # read the last post of user #1
-$Base->find('post')
-  ->belongsTo('user')
-  ->whereEqual('user.id', 1)
-  ->orderDesc('post.id')
-  ->readRecord();
-```
-```php
+$Base->find('post')->belongsTo('user')->whereEqual('user.id', 1)->orderDesc('post.id')->readRecord();
 # read the titles of the posts that have a "php" label
-$Base->find('post')
-  ->hasAndBelongsTo('label')
-  ->whereEqual('label.name', 'php')
-  ->readFields('title');
+$Base->find('post')->hasAndBelongsTo('label')->whereEqual('label.name', 'php')->readFields('title');
 ```
 
 Execute queries:
 ```php
 # read all users
 $Base->read('SELECT * FROM user');
-```
-```php
 # read user #123
 $Base->readRecord('SELECT * FROM user WHERE id = ?', [123]);
-```
-```php
 # read the username of user #123
 $Base->readField('SELECT username FROM user WHERE id = ?', [123]);
-```
-```php
 # read all usernames
 $Base->readFields('SELECT username FROM user');
-```
-```php
 # update all users
 $Base->update('UPDATE INTO user SET is_verified = ?', [1]);
 ```
