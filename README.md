@@ -13,7 +13,7 @@ Because most projects don't need complicated ORMs.
 
 ### Installation
 
-Include both `Base.php` and `Collection.php` or install [the composer package](https://packagist.org/packages/erusev/base)
+Include both `Base.php` and `Collection.php` or install [the composer package](https://packagist.org/packages/erusev/base).
 
 ### Examples
 
