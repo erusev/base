@@ -49,7 +49,7 @@ $Base->find('user')->whereNull('location')->count();
 $Base->find('post')->where('created_at <= DATE_SUB(NOW(),INTERVAL 1 MONTH)')->delete();
 ```
 
-Handle relationships:
+Use relationships:
 ```php
 # read the users that have a featured post
 $Base->find('user')->has('post')->whereEqual('post.is_featured', 1)->read();
