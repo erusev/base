@@ -1,8 +1,8 @@
 ## Base ORM
 
-Most of the popular ORMs seem quite complex. They might make sense for complex projects, but most projects are simple.
+Most of the popular ORMs seem quite complex. They might make sense for some complex projects, but most projects are simple.
 
-Meet Base. It's, perhaps, the simples ORM in PHP. It's been helping me quite a lot over the years. I thought it's about time I share it with the world.
+Meet Base - perhaps, the simplest ORM in PHP. I've been using it quite a lot over the years. I thought it's about time I share it with the world.
 
 ### Features
 
