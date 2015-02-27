@@ -23,7 +23,7 @@ Connect to a database:
 $Base = new \Base\Base('mysql:host=localhost;dbname=example', 'username', 'password');
 ```
 
-Work with records:
+Work with individual records:
 ```php
 # read user 1
 $Base->readItem('user', 1);
@@ -35,7 +35,7 @@ $Base->createItem('user', ['username' => 'jane.doe', 'email' => 'jane@example.co
 $Base->deleteItem('user', 1);
 ```
 
-Work with collections:
+Work with multiple records:
 ```php
 # read all users
 $Base->find('user')->read();
