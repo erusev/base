@@ -1,6 +1,9 @@
 ## Base ORM
 
-The popular ORMs seem quite complex. They might make sense for complex projects, but most projects are simple. Meet Base. It's a simple ORM in PHP. I've been using it quite a lot over the years. I thought it's about time I share it with the world.
+[![Build Status](http://img.shields.io/travis/erusev/base.svg?style=flat-square)](https://travis-ci.org/erusev/base)
+[![Latest Stable Version](http://img.shields.io/packagist/v/erusev/base.svg?style=flat-square)](https://packagist.org/packages/erusev/base)
+
+The popular ORMs seem quite complex. They might make sense for complex projects, but most projects are simple. Meet Base. It's a much simpler ORM. I've been using it quite a lot over the years. I thought it's about time I share it with the world.
 
 ### Features
 
@@ -23,7 +26,7 @@ Connect to a database:
 $Base = new \Base\Base('mysql:host=localhost;dbname=example', 'username', 'password');
 ```
 
-Work with individual records:
+Work with records:
 ```php
 # read user 1
 $Base->readItem('user', 1);
@@ -35,7 +38,7 @@ $Base->createItem('user', ['username' => 'jane.doe', 'email' => 'jane@example.co
 $Base->deleteItem('user', 1);
 ```
 
-Work with multiple records:
+Work with collections:
 ```php
 # read all users
 $Base->find('user')->read();
@@ -55,7 +58,7 @@ Use relationships:
 $Base->find('user')->has('post')->whereEqual('post.is_featured', 1)->read();
 # read the posts of user 1
 $Base->find('post')->belongsTo('user')->whereEqual('user.id', 1)->read();
-# read the posts that are tagged "php"
+# read the posts about "php"
 $Base->find('post')->hasBelongsTo('tag')->whereEqual('tag.name', 'php')->read();
 ```
 
@@ -75,9 +78,4 @@ $Base->update('UPDATE INTO user SET is_verified = ?', [1]);
 
 ### Requirements
 
-Table names must be singular - e.g. `user` instead of `users`.
-
-### Status
-
-[![Build Status](http://img.shields.io/travis/erusev/base.svg?style=flat-square)](https://travis-ci.org/erusev/base)
-[![Latest Stable Version](http://img.shields.io/packagist/v/erusev/base.svg?style=flat-square)](https://packagist.org/packages/erusev/base)
+Relationship methods require that table names are singular - e.g. `user` instead of `users`.
