@@ -56,7 +56,7 @@ $Base->find('user')->has('post')->whereEqual('post.is_featured', 1)->read();
 # read the posts of user 1
 $Base->find('post')->belongsTo('user')->whereEqual('user.id', 1)->read();
 # read the posts that are tagged "php"
-$Base->find('post')->hasAndBelongsTo('tag')->whereEqual('tag.name', 'php')->read();
+$Base->find('post')->hasBelongsTo('tag')->whereEqual('tag.name', 'php')->read();
 ```
 
 Execute queries:

@@ -240,7 +240,7 @@ class Test extends PHPUnit_Framework_TestCase
         $this->assertEquals(array('First Post', 'Second Post'), $fields);
 
         $fields = $this->Base->find('post')
-            ->hasAndBelongsTo('tag')
+            ->hasBelongsTo('tag')
             ->whereEqual('tag.name', 'life')
             ->readFields('title');
 

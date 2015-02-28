@@ -66,7 +66,7 @@ class Collection
      * @param string $table
      * @return $this
      */
-    function hasAndBelongsTo($table)
+    function hasBelongsTo($table)
     {
         $tables = array($this->table, $table);
 
