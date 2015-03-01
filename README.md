@@ -3,7 +3,7 @@
 [![Build Status](http://img.shields.io/travis/erusev/base.svg?style=flat-square)](https://travis-ci.org/erusev/base)
 [![Latest Stable Version](http://img.shields.io/packagist/v/erusev/base.svg?style=flat-square)](https://packagist.org/packages/erusev/base)
 
-The popular ORMs seem quite complex. They might make sense for complex projects, but most projects are simple. Meet Base. It's a much simpler ORM. I've been using it quite a lot over the years. I thought it's about time I share it with the world.
+The popular ORMs seem too complex. They might make sense for complex projects, but most projects are simple. Meet Base. It's a much simpler ORM. I've been using it quite a lot over the years. I thought it's about time I share it with the world.
 
 ### Features
 
@@ -52,7 +52,7 @@ $Base->find('user')->whereNull('location')->count();
 $Base->find('post')->where('created_at <= DATE_SUB(NOW(),INTERVAL 1 MONTH)')->delete();
 ```
 
-Use relationships:
+Handle relationships:
 ```php
 # read the users that have a featured post
 $Base->find('user')->has('post')->whereEqual('post.is_featured', 1)->read();
