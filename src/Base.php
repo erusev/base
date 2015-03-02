@@ -18,6 +18,27 @@ class Base
     private $PDO;
 
     /**
+     * @param $fkEnding
+     * @return $this
+     */
+    function setFkEnding($fkEnding)
+    {
+        $this->fkEnding = $fkEnding;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    function getFkEnding()
+    {
+        return $this->fkEnding;
+    }
+
+    private $fkEnding = '_id';
+
+    /**
      * @param string $statement
      * @param array $parameters
      * @return array
