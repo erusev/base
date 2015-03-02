@@ -8,6 +8,14 @@ use PDOStatement;
 
 class Base
 {
+    /**
+     * Takes the same parameters as the PDO constructor.
+     * @link http://php.net/manual/en/pdo.construct.php
+     * @param string $dsn
+     * @param string $username [optional]
+     * @param string $password [optional]
+     * @param array $options [optional]
+     */
     function __construct($dsn, $username = null, $password = null, array $options = array())
     {
         $PDO = new PDO($dsn, $username, $password, $options);
