@@ -3,7 +3,7 @@
 [![Build Status](http://img.shields.io/travis/erusev/base.svg?style=flat-square)](https://travis-ci.org/erusev/base)
 [![Latest Stable Version](http://img.shields.io/packagist/v/erusev/base.svg?style=flat-square)](https://packagist.org/packages/erusev/base)
 
-Base is a (super) simple ORM in PHP. I've been using it quite a lot over the years. I thought it's about time I share it with the world.
+Base is a (super) simple ORM in PHP. I've been using it a lot over the years. I thought it's about time I share it with the world.
 
 ### Features
 
@@ -13,6 +13,7 @@ Base is a (super) simple ORM in PHP. I've been using it quite a lot over the yea
 - Secure
 - Based on [PDO](http://php.net/manual/en/book.pdo.php)
 - Tested in 5.3, 5.4, 5.5, 5.6 and [HHVM](http://hhvm.com/)
+- Works out of the box
 
 ### Installation
 
