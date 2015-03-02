@@ -3,7 +3,7 @@
 [![Build Status](http://img.shields.io/travis/erusev/base.svg?style=flat-square)](https://travis-ci.org/erusev/base)
 [![Latest Stable Version](http://img.shields.io/packagist/v/erusev/base.svg?style=flat-square)](https://packagist.org/packages/erusev/base)
 
-The popular ORMs seem too complex. They might make sense for complex projects, but most projects are simple. Meet Base. It's a much simpler ORM. I've been using it quite a lot over the years. I thought it's about time I share it with the world.
+Base is a (super) simple ORM in PHP. I've been using it quite a lot over the years. I thought it's about time I share it with the world.
 
 ### Features
 
