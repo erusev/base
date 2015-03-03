@@ -1,6 +1,6 @@
 ## Base ORM
 
-[![SensioLabsInsight](https://insight.sensiolabs.com/projects/c8843251-ba46-4be5-be0e-9af19170ac83/big.png)](https://insight.sensiolabs.com/projects/c8843251-ba46-4be5-be0e-9af19170ac83)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/c8843251-ba46-4be5-be0e-9af19170ac83/mini.png)](https://insight.sensiolabs.com/projects/c8843251-ba46-4be5-be0e-9af19170ac83)
 
 Base is a (super) simple ORM in PHP. I've been using it a lot over the years. I thought it's about time I share it with the world.
 
