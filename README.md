@@ -48,8 +48,8 @@ $Base->find('user')->limit(1)->orderDesc('reputation')->readRecord();
 $Base->find('user')->whereIn('id', [1, 2])->update(['is_verified' => 1]);
 # count users that don't have a location
 $Base->find('user')->whereNull('location')->count();
-# delete posts that are more than a month old
-$Base->find('post')->where('created_at <= DATE_SUB(NOW(),INTERVAL 1 MONTH)')->delete();
+# plain sql conditions are also supported
+$Base->find('post')->where('reputation BETWEEN ? AND ?', [100, 200])->delete();
 ```
 
 Handle relationships:
@@ -78,7 +78,7 @@ $Base->update('UPDATE INTO user SET is_verified = ?', [1]);
 
 ### Requirements
 
-Relationship methods require that table names are singular: e.g. `user` instead of `users`.
+Relationship methods require that table names are singular - e.g. `user` instead of `users`.
 
 ### Status
 
