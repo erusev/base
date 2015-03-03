@@ -14,4 +14,3 @@ install:
 before_script:
   - mysql -e 'create database `test`;'
   - mysql --default-character-set=utf8 test < test/test.sql
-  
