@@ -1,10 +1,5 @@
 ## Base ORM
 
-[![Build Status](http://img.shields.io/travis/erusev/base.svg?style=flat-square)](https://travis-ci.org/erusev/base)
-<!--
-[![Latest Stable Version](http://img.shields.io/packagist/v/erusev/base.svg?style=flat-square)](https://packagist.org/packages/erusev/base)
--->
-
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/c8843251-ba46-4be5-be0e-9af19170ac83/big.png)](https://insight.sensiolabs.com/projects/c8843251-ba46-4be5-be0e-9af19170ac83)
 
 Base is a (super) simple ORM in PHP. I've been using it a lot over the years. I thought it's about time I share it with the world.
@@ -84,3 +79,8 @@ $Base->update('UPDATE INTO user SET is_verified = ?', [1]);
 ### Requirements
 
 Relationship methods require that table names are singular - e.g. `user` instead of `users`.
+
+### Status
+
+[![Build Status](http://img.shields.io/travis/erusev/base.svg?style=flat-square)](https://travis-ci.org/erusev/base)
+[![Latest Stable Version](http://img.shields.io/packagist/v/erusev/base.svg?style=flat-square)](https://packagist.org/packages/erusev/base)
