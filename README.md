@@ -2,7 +2,7 @@
 
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/c8843251-ba46-4be5-be0e-9af19170ac83/mini.png)](https://insight.sensiolabs.com/projects/c8843251-ba46-4be5-be0e-9af19170ac83)
 
-Base is a (super) simple ORM in PHP. I've been using it a lot over the years. I thought it's about time I share it with the world.
+Base is a super simple ORM in PHP. I've been using it for quite some time. I thought it's about time I share it with the world.
 
 ### Features
 
@@ -78,7 +78,7 @@ $Base->update('UPDATE INTO user SET is_verified = ?', [1]);
 
 ### Requirements
 
-Relationship methods require that table names are singular - e.g. `user` instead of `users`.
+Relationship methods require that table names are singular: e.g. `user` instead of `users`.
 
 ### Status
 
