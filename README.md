@@ -12,7 +12,6 @@ Base is a super simple ORM in PHP. I've been using it for quite some time. I tho
 - Secure
 - Based on [PDO](http://php.net/manual/en/book.pdo.php)
 - Tested in 5.3, 5.4, 5.5, 5.6 and [HHVM](http://hhvm.com/)
-- Works out of the box
 
 ### Installation
 
@@ -42,14 +41,16 @@ Work with collections:
 ```php
 # read all users
 $Base->find('user')->read();
-# read the user with the highest reputation
+# read the users that are marked as verified in a desc order
+$Base->find('user')->whereEqual('is_verified', 1)->orderDesc('id')->read();
+# read the user with the most reputation
 $Base->find('user')->limit(1)->orderDesc('reputation')->readRecord();
-# update is_verified field of users 1 and 2
-$Base->find('user')->whereIn('id', [1, 2])->update(['is_verified' => 1]);
-# count users that don't have a location
+# mark users 1 and 3 as verified
+$Base->find('user')->whereIn('id', [1, 3])->update(['is_verified' => 1]);
+# count the users that don't have a location
 $Base->find('user')->whereNull('location')->count();
 # plain sql conditions are also supported
-$Base->find('post')->where('reputation BETWEEN ? AND ?', [100, 200])->delete();
+$Base->find('user')->where('is_verified = ?', [1])->read();
 ```
 
 Handle relationships:
@@ -60,6 +61,8 @@ $Base->find('user')->has('post')->whereEqual('post.is_featured', 1)->read();
 $Base->find('post')->belongsTo('user')->whereEqual('user.id', 1)->read();
 # read the posts that are tagged "php"
 $Base->find('post')->hasAndBelongsTo('tag')->whereEqual('tag.name', 'php')->read();
+# unconventional FK names are also supported
+$Base->find('user')->has('post', 'author_id')->whereEqual('user.id', 1)->read();
 ```
 
 Execute queries:
