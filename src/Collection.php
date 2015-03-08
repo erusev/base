@@ -43,7 +43,7 @@ class Collection
     {
         $foreignKey = $foreignKey ?: $this->table.$this->Base->getFkEnding();
 
-        $this->tableClause .= " JOIN `$table` ON `$this->table`.id = `$table`.`$foreignKey`";
+        $this->tableClause .= " LEFT JOIN `$table` ON `$this->table`.id = `$table`.`$foreignKey`";
 
         return $this;
     }
@@ -57,7 +57,7 @@ class Collection
     {
         $foreignKey = $foreignKey ?: $table.$this->Base->getFkEnding();
 
-        $this->tableClause .= " JOIN `$table` ON `$this->table`.`$foreignKey` = `$table`.`id`";
+        $this->tableClause .= " LEFT JOIN `$table` ON `$this->table`.`$foreignKey` = `$table`.`id`";
 
         return $this;
     }
@@ -78,8 +78,8 @@ class Collection
         $bKey = $table.$this->Base->getFkEnding();
 
         $this->tableClause .= "
-			JOIN `$joinTable` ON `$this->table`.`id` = `$joinTable`.`$aKey`
-			JOIN `$table` ON `$table`.id = `$joinTable`.`$bKey`";
+			LEFT JOIN `$joinTable` ON `$this->table`.`id` = `$joinTable`.`$aKey`
+			LEFT JOIN `$table` ON `$table`.id = `$joinTable`.`$bKey`";
 
         return $this;
     }
