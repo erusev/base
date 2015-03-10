@@ -26,27 +26,6 @@ class Base
     private $PDO;
 
     /**
-     * @param $fkEnding
-     * @return $this
-     */
-    function setFkEnding($fkEnding)
-    {
-        $this->fkEnding = $fkEnding;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    function getFkEnding()
-    {
-        return $this->fkEnding;
-    }
-
-    private $fkEnding = '_id';
-
-    /**
      * @param string $statement
      * @param array $parameters
      * @return array
@@ -248,4 +227,11 @@ class Base
 
         return $PDO;
     }
+
+    /**
+     * The ending of FK names.
+     *
+     * @var string
+     */
+    public $fkEnding = '_id';
 }
