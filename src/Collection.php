@@ -41,7 +41,7 @@ class Collection
      */
     function has($table, $foreignKey = null)
     {
-        $foreignKey = $foreignKey ?: $this->table.$this->Base->getFkEnding();
+        $foreignKey = $foreignKey ?: $this->table.$this->Base->fkEnding;
 
         $this->tableClause .= " LEFT JOIN `$table` ON `$this->table`.id = `$table`.`$foreignKey`";
 
@@ -55,7 +55,7 @@ class Collection
      */
     function belongsTo($table, $foreignKey = null)
     {
-        $foreignKey = $foreignKey ?: $table.$this->Base->getFkEnding();
+        $foreignKey = $foreignKey ?: $table.$this->Base->fkEnding;
 
         $this->tableClause .= " LEFT JOIN `$table` ON `$this->table`.`$foreignKey` = `$table`.`id`";
 
@@ -74,8 +74,8 @@ class Collection
 
         $joinTable = join('_', $tables);
 
-        $aKey = $this->table.$this->Base->getFkEnding();
-        $bKey = $table.$this->Base->getFkEnding();
+        $aKey = $this->table.$this->Base->fkEnding;
+        $bKey = $table.$this->Base->fkEnding;
 
         $this->tableClause .= "
 			LEFT JOIN `$joinTable` ON `$this->table`.`id` = `$joinTable`.`$aKey`
