@@ -81,7 +81,7 @@ $Base->update('UPDATE INTO user SET is_verified = ?', [1]);
 
 ### Notes
 
-- Relationship methods require that table names are singular - e.g. `user` instead of `users`.
+- Relationship methods require that table names are singular - ex: `user` instead of `users`.
 - Not tested on other RDBMSs than MySQL
 
 ### Status
