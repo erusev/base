@@ -2,7 +2,7 @@
 
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/c8843251-ba46-4be5-be0e-9af19170ac83/mini.png)](https://insight.sensiolabs.com/projects/c8843251-ba46-4be5-be0e-9af19170ac83)
 
-Base is a simple database interface in PHP. It aims to make the most common interactions with MySQL databases easier. I've been using and improving it for quite some time. I felt like it's about time I share it.
+Base is a simple database interface in PHP. It aims to make the most common interactions with the database easier. I've been using and improving it for quite some time. I felt like it's about time I share it.
 
 ### Features
 
@@ -79,9 +79,10 @@ $Base->readFields('SELECT username FROM user');
 $Base->update('UPDATE INTO user SET is_verified = ?', [1]);
 ```
 
-### Requirements
+### Notes
 
-Relationship methods require that table names are singular - e.g. `user` instead of `users`.
+- Relationship methods require that table names are singular - e.g. `user` instead of `users`.
+- Not tested on RDBMS other than MySQL
 
 ### Status
 
