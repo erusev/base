@@ -43,7 +43,7 @@ class Collection
     {
         $foreignKey = $foreignKey ?: $this->table.$this->Base->fkEnding;
 
-        $this->tableClause .= " LEFT JOIN `$table` ON `$this->table`.id = `$table`.`$foreignKey`";
+        $this->tableClause .= " LEFT JOIN `$table` ON `$this->table`.`id` = `$table`.`$foreignKey`";
 
         return $this;
     }
@@ -79,7 +79,7 @@ class Collection
 
         $this->tableClause .= "
 			LEFT JOIN `$joinTable` ON `$this->table`.`id` = `$joinTable`.`$aKey`
-			LEFT JOIN `$table` ON `$table`.id = `$joinTable`.`$bKey`";
+			LEFT JOIN `$table` ON `$table`.`id` = `$joinTable`.`$bKey`";
 
         return $this;
     }
@@ -113,7 +113,7 @@ class Collection
      */
     function whereEqual($field, $value, $reverse = false)
     {
-        $field = $this->sanitizePath($field);
+        $field = $this->escapeField($field);
 
         $operator = $reverse ? '!=' : '=';
 
@@ -144,7 +144,7 @@ class Collection
      */
     function whereIn($field, array $values, $reverse = false)
     {
-        $field = $this->sanitizePath($field);
+        $field = $this->escapeField($field);
 
         $operator = $reverse ? 'NOT IN' : 'IN';
 
@@ -181,7 +181,7 @@ class Collection
      */
     function whereNull($field, $reverse = false)
     {
-        $field = $this->sanitizePath($field);
+        $field = $this->escapeField($field);
 
         $operator = $reverse ? 'IS NOT' : 'IS';
 
@@ -252,7 +252,7 @@ class Collection
      */
     function orderAsc($field)
     {
-        $field = $this->sanitizePath($field);
+        $field = $this->escapeField($field);
 
         $this->orderClause = $field . ' ASC';
 
@@ -265,7 +265,7 @@ class Collection
      */
     function orderDesc($field)
     {
-        $field = $this->sanitizePath($field);
+        $field = $this->escapeField($field);
 
         $this->orderClause = $field . ' DESC';
 
@@ -404,15 +404,15 @@ class Collection
     }
 
     /**
-     * @param string $path
+     * @param string $field
      * @return string
      */
-    protected function sanitizePath($path)
+    protected function escapeField($field)
     {
-        $path = str_replace('`', '', $path);
-        $path = str_replace('.', '`.`', $path);
-        $path = '`'.$path.'`';
+        $field = str_replace('`', '', $field);
+        $field = str_replace('.', '`.`', $field);
+        $field = '`'.$field.'`';
 
-        return $path;
+        return $field;
     }
 }
