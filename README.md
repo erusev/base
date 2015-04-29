@@ -1,8 +1,8 @@
-## Base DBAL
+## Base
 
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/c8843251-ba46-4be5-be0e-9af19170ac83/mini.png)](https://insight.sensiolabs.com/projects/c8843251-ba46-4be5-be0e-9af19170ac83)
 
-Base is a simple database abstraction in PHP. It aims to make the most common interactions with the database easier. I've been using it for quite some time. I felt like it's about time I share it.
+Base is a simple database interface in PHP. It aims to make the most common interactions with MySQL databases easier. I've been using and improving it for quite some time. I felt like it's about time I share it.
 
 ### Features
 
