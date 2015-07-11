@@ -1,7 +1,7 @@
 {
     "name": "erusev/base",
-    "description": "Simple ORM.",
-    "keywords": ["orm", "database", "pdo"],
+    "description": "Simple Database Interface",
+    "keywords": ["dbal", "database", "pdo"],
     "homepage": "https://github.com/erusev/base",
     "type": "library",
     "license": "MIT",
