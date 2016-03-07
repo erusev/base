@@ -1,5 +1,3 @@
-> I also work on a [Markdown editor for the desktop](http://caret.io?ref=parsedown) - I'll appreciate it if you have a look at it and tell me what you think.
-
 ## Base
 
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/c8843251-ba46-4be5-be0e-9af19170ac83/mini.png)](https://insight.sensiolabs.com/projects/c8843251-ba46-4be5-be0e-9af19170ac83)
