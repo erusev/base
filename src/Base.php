@@ -113,7 +113,7 @@ class Base
     function readItem($table, $id)
     {
         $Record = $this->find($table)
-            ->whereEqual('id', $this->pk_key)
+            ->whereEqual($this->pk_key, $id)
             ->readRecord();
 
         return $Record;
@@ -142,7 +142,7 @@ class Base
     function updateItem($table, $id, array $Data)
     {
         $impactedRecordCount = $this->find($table)
-            ->whereEqual('id', $this->pk_key)
+            ->whereEqual($this->pk_key, $id)
             ->update($Data);
 
         return $impactedRecordCount;
@@ -183,7 +183,7 @@ class Base
     function deleteItem($table, $id)
     {
         $impactedRecordCount = $this->find($table)
-            ->whereEqual('id', $this->pk_key)
+            ->whereEqual($this->pk_key, $id)
             ->delete();
 
         return $impactedRecordCount;
