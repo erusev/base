@@ -4,15 +4,15 @@
 
 Base is a super simple library that makes it much easier to work with databases in PHP. 
 
-I've been using and improving Base for more than 3 years. I thought that it's about time I share it with the world.
+I've been using Base for more than 3 years. I thought that it's about time I share it with the world.
 
 ### Features
 
-- intuitive interface
-- simple implementation
-- no dependencies
-- secure
-- tested in 5.3, 5.4, 5.5, 5.6 and [HHVM](http://hhvm.com/)
+- Intuitive Interface
+- Simple Implementation
+- No Dependencies
+- Secure
+- Tested in 5.3, 5.4, 5.5, 5.6 and [HHVM](http://hhvm.com/)
 
 ### Installation
 
