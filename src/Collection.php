@@ -78,8 +78,8 @@ class Collection
         $bKey = $table.$this->Base->fkEnding;
 
         $this->tableClause .= "
-			LEFT JOIN `$joinTable` ON `$this->table`.`id` = `$joinTable`.`$aKey`
-			LEFT JOIN `$table` ON `$table`.`id` = `$joinTable`.`$bKey`";
+            LEFT JOIN `$joinTable` ON `$this->table`.`id` = `$joinTable`.`$aKey`
+            LEFT JOIN `$table` ON `$table`.`id` = `$joinTable`.`$bKey`";
 
         return $this;
     }
