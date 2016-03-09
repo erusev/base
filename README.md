@@ -2,7 +2,17 @@
 
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/c8843251-ba46-4be5-be0e-9af19170ac83/mini.png)](https://insight.sensiolabs.com/projects/c8843251-ba46-4be5-be0e-9af19170ac83)
 
-Base makes it easier to work with databases in PHP. It stands out with its elegant interface and super simple implementation. It is secure and stable. It has been tested in 5.3, 5.4, 5.5, 5.6 and [HHVM](http://hhvm.com/).
+Base is a super simple library that makes it much easier to work with databases in PHP. 
+
+I've been using and improving Base for more than 3 years. I thought that it's about time I share it with the world.
+
+### Features
+
+- intuitive interface
+- simple implementation
+- no dependencies
+- secure
+- tested in 5.3, 5.4, 5.5, 5.6 and [HHVM](http://hhvm.com/)
 
 ### Installation
 
