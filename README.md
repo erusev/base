@@ -12,7 +12,7 @@ I've been using Base since 2012. I felt like it's about time I share it.
 - Intuitive
 - Independent
 - Secure
-- Tested in 5.3, 5.4, 5.5, 5.6 and [HHVM](http://hhvm.com/)
+- Tested in 5.3, 5.4, 5.5, 5.6, 7 and [HHVM](http://hhvm.com/)
 
 ### Installation
 
