@@ -2,16 +2,7 @@
 
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/c8843251-ba46-4be5-be0e-9af19170ac83/mini.png)](https://insight.sensiolabs.com/projects/c8843251-ba46-4be5-be0e-9af19170ac83)
 
-Base makes it much easier to work with databases in PHP. I've been using it for quite some time. I felt like it's about time I share it.
-
-### Features
-
-- Simple
-- Intuitive
-- Independent
-- Secure
-- Based on [PDO](http://php.net/manual/en/book.pdo.php)
-- Tested in 5.3, 5.4, 5.5, 5.6 and [HHVM](http://hhvm.com/)
+Base makes it easier to work with databases in PHP. It stands out with its elegant interface and super simple implementation. It is secure and stable. It has been tested in 5.3, 5.4, 5.5, 5.6 and [HHVM](http://hhvm.com/).
 
 ### Installation
 
