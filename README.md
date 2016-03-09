@@ -2,7 +2,7 @@
 
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/c8843251-ba46-4be5-be0e-9af19170ac83/mini.png)](https://insight.sensiolabs.com/projects/c8843251-ba46-4be5-be0e-9af19170ac83)
 
-Base is a super simple library that makes it much easier to work with databases in PHP. 
+Base is a simple library that makes it easier to work with databases in PHP. 
 
 I've been using Base since 2012. I thought that it's about time I share it with the world.
 
