@@ -4,7 +4,7 @@
 
 Base is a simple library that makes it easier to work with databases in PHP. 
 
-I have been using Base since 2012. I felt like it's about time I share it.
+I have been using it since 2012 and I felt like it is about time I share it.
 
 ### Features
 
