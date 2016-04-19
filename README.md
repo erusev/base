@@ -82,9 +82,9 @@ $Base->update('UPDATE INTO user SET is_verified = ?', [1]);
 
 ### Notes
 
-- Relationship methods assume that table names are singular - ex: `user` instead of `users`.
-- Relationship methods assume that FK names end in `_id` - use `$fkEnding` to customize
 - Not tested on other RDBMSs than MySQL
+- Relationship methods assume that table names are singular - ex: `user` instead of `users`
+- Relationship methods assume that FK names end in `_id` - use `$fkEnding` to customize
 
 ### Status
 
