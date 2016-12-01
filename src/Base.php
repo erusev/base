@@ -8,6 +8,10 @@ use PDOStatement;
 
 class Base
 {
+    protected $pk_key;
+    
+    private $PDO;
+    
     /**
      * Takes the same parameters as the PDO constructor.
      * @link http://php.net/manual/en/pdo.construct.php
@@ -16,14 +20,24 @@ class Base
      * @param string $password [optional]
      * @param array $options [optional]
      */
-    function __construct($dsn, $username = null, $password = null, array $options = array())
+    function __construct($dsn, $username = null, $password = null, array $options = array(), $pk_key = 'id')
     {
         $PDO = new PDO($dsn, $username, $password, $options);
 
         $this->PDO = $PDO;
+        
+        $this->pk_key = (string)$pk_key;
     }
-
-    private $PDO;
+    
+    public function setPkKey($pk_key = 'id')
+    {
+        $this->pk_key = (string)$pk_key;
+    }
+    
+    public function getPkKey()
+    {
+        return $this->pk_key;
+    }
 
     /**
      * @param string $statement
@@ -99,7 +113,7 @@ class Base
     function readItem($table, $id)
     {
         $Record = $this->find($table)
-            ->whereEqual('id', $id)
+            ->whereEqual($this->pk_key, $id)
             ->readRecord();
 
         return $Record;
@@ -128,7 +142,7 @@ class Base
     function updateItem($table, $id, array $Data)
     {
         $impactedRecordCount = $this->find($table)
-            ->whereEqual('id', $id)
+            ->whereEqual($this->pk_key, $id)
             ->update($Data);
 
         return $impactedRecordCount;
@@ -169,7 +183,7 @@ class Base
     function deleteItem($table, $id)
     {
         $impactedRecordCount = $this->find($table)
-            ->whereEqual('id', $id)
+            ->whereEqual($this->pk_key, $id)
             ->delete();
 
         return $impactedRecordCount;
