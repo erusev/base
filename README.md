@@ -77,7 +77,7 @@ $Base->readField('SELECT username FROM user WHERE id = ?', [1]);
 # read all usernames
 $Base->readFields('SELECT username FROM user');
 # update all users
-$Base->update('UPDATE INTO user SET is_verified = ?', [1]);
+$Base->update('UPDATE user SET is_verified = ?', [1]);
 ```
 
 ### Notes
