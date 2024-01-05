@@ -1,7 +1,5 @@
 ## Base
 
-[![SensioLabsInsight](https://insight.sensiolabs.com/projects/c8843251-ba46-4be5-be0e-9af19170ac83/mini.png)](https://insight.sensiolabs.com/projects/c8843251-ba46-4be5-be0e-9af19170ac83)
-
 Base is a simple library that makes it easier to work with databases in PHP. 
 
 I have been using it since 2012 and I felt like it is about time I share it.
@@ -85,10 +83,3 @@ $Base->update('UPDATE user SET is_verified = ?', [1]);
 - Not tested on other RDBMSs than MySQL
 - Relationship methods assume that table names are singular - ex: `user` instead of `users`
 - Relationship methods assume that FK names end in `_id` - use `$fkEnding` to customize
-
-### Status
-
-[![Build Status](http://img.shields.io/travis/erusev/base.svg?style=flat-square)](https://travis-ci.org/erusev/base)
-<!--
-[![Latest Stable Version](http://img.shields.io/packagist/v/erusev/base.svg?style=flat-square)](https://packagist.org/packages/erusev/base)
--->
